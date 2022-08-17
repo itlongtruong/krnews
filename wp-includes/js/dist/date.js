@@ -1264,7 +1264,7 @@ let settings = {
     time: 'g: i a',
     date: 'F j, Y',
     datetime: 'F j, Y g: i a',
-    datetimeAbbreviated: 'M j, Y g: i a'
+    datetimeAbbreviated: 'd/m/Y g: i a'
   },
   timezone: {
     offset: '0',

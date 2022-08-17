@@ -393,12 +393,12 @@ class WP_Community_Events {
 				 * are available, without having to open the link.
 				 */
 				/* translators: Date format for upcoming events on the dashboard. Include the day of the week. See https://www.php.net/manual/datetime.format.php */
-				$formatted_date = date_i18n( __( 'l, M j, Y' ), $timestamp );
+				$formatted_date = date_i18n( __( 'l, d/m/Y' ), $timestamp );
 				$formatted_time = date_i18n( get_option( 'time_format' ), $timestamp );
 
 				if ( isset( $event['end_date'] ) ) {
 					$end_timestamp      = strtotime( $event['end_date'] );
-					$formatted_end_date = date_i18n( __( 'l, M j, Y' ), $end_timestamp );
+					$formatted_end_date = date_i18n( __( 'l, d/m/Y' ), $end_timestamp );
 
 					if ( 'meetup' !== $event['type'] && $formatted_end_date !== $formatted_date ) {
 						/* translators: Upcoming events month format. See https://www.php.net/manual/datetime.format.php */

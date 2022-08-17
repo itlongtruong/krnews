@@ -771,7 +771,7 @@ jQuery( function( $ ) {
 			 * `multiple_month_event`, though, just in case.
 			 */
 			/* translators: Date format for upcoming events on the dashboard. Include the day of the week. See https://www.php.net/manual/datetime.format.php */
-			var singleDayEvent = __( 'l, M j, Y' ),
+			var singleDayEvent = __( 'l, d/m/Y' ),
 				/* translators: Date string for upcoming events. 1: Month, 2: Starting day, 3: Ending day, 4: Year. */
 				multipleDayEvent = __( '%1$s %2$d–%3$d, %4$d' ),
 				/* translators: Date string for upcoming events. 1: Starting month, 2: Starting day, 3: Ending month, 4: Ending day, 5: Ending year. */

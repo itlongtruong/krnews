@@ -83,7 +83,7 @@ printf(
                                     <p> <?php the_excerpt(); ?></p>
                                     <ul class="blog-info-link">
                                         <li><a href="<?php the_permalink(); ?>"><i class="fa fa-user"></i><?php echo get_the_author();?> </a></li>
-                                        <li><a href="<?php the_permalink(); ?>"><i class="fa fa-clock"></i> <time datetime="<?php echo date('Y-m-d', strtotime($post->post_date))?>"><?php echo date('M j, Y', strtotime($post->post_date))?></time></a></li>
+                                        <li><a href="<?php the_permalink(); ?>"><i class="fa fa-clock"></i> <time datetime="<?php echo date('Y-m-d', strtotime($post->post_date))?>"><?php echo date('d/m/Y', strtotime($post->post_date))?></time></a></li>
                                         <li><a href="<?php the_permalink(); ?>"><i class="fa fa-eye"></i><?php echo getPostViews(get_the_ID()); ?></a></li>
                                     </ul>
                                 </div>

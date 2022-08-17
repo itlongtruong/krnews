@@ -87,7 +87,14 @@ class WPSEO_Post_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 			$values = ( $values_to_set + $values );
 		}
 
-		return $values;
+		/**
+		 * Filter: 'wpseo_post_edit_values' - Allows changing the values Yoast SEO uses inside the post editor.
+		 *
+		 * @api array $values The key-value map Yoast SEO uses inside the post editor.
+		 *
+		 * @param WP_Post $post The post opened in the editor.
+		 */
+		return \apply_filters( 'wpseo_post_edit_values', $values, $this->post );
 	}
 
 	/**
@@ -283,7 +290,7 @@ class WPSEO_Post_Metabox_Formatter implements WPSEO_Metabox_Formatter_Interface 
 	 * @return string
 	 */
 	private function get_metadesc_date() {
-		return YoastSEO()->helpers->date->format_translated( $this->post->post_date, 'M j, Y' );
+		return YoastSEO()->helpers->date->format_translated( $this->post->post_date, 'd/m/Y' );
 	}
 
 	/**

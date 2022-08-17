@@ -12,6 +12,7 @@
  * @since Finance 1.0
  */
 
+$current_date = current_datetime();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> <?php twentytwentyone_the_html_classes(); ?>>
@@ -52,10 +53,6 @@
     <!-- ==== Custom Stylesheet ==== -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/custom.css">
 
-
-
-
-
 </head>
 
 <body class="boxed" data-bg-img="<?php echo get_template_directory_uri(); ?>/assets/img/bg-pattern.png" <?php body_class(); ?>>
@@ -69,9 +66,9 @@
                     <div class="float--left float--xs-none text-xs-center">
                         <!-- Header Topbar Info Start -->
                         <ul class="header--topbar-info nav">
-                            <li><i class="fa fm fa-map-marker"></i>Long Xuyên</li>
+                            <li><i class="fa fm fa-map-marker"></i>Krông Nô</li>
                             <li><i class="fa fm fa-mixcloud"></i>21<sup>0</sup> C</li>
-                            <li><i class="fa fm fa-calendar"></i>To day</li>
+                            <li><i class="fa fm fa-calendar"></i><?php echo $current_date->format('d/m/Y'); ?></li>
                         </ul>
                         <!-- Header Topbar Info End -->
                     </div>
@@ -92,7 +89,7 @@
                         </li> -->
 
 
-                            <li><a href=""><i class="fa fm fa-user-o"></i>Đăng nhập/Đăng ký</a></li>
+                            <li><a href="<?php echo home_url(); ?>/login"><i class="fa fm fa-user-o"></i>Đăng nhập/Đăng ký</a></li>
 
 
                         </ul>
@@ -133,11 +130,33 @@
                     <!-- Header Logo End -->
 
                     <!-- Header Ad Start -->
-                    <div class="header--ad float--right float--sm-none hidden-xs" style="width:60% ;margin-top:60px">
-                        <a href="https://masterisehomes.com/the-rivus/?utm_source=adtima&utm_medium=impression&utm_campaign=rivus-adtima-impression-phase1-na-cpd-8B115F30-mastheadtoppc">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ads-img/728x90_baner1.png" alt="Advertisement">
-                        </a>
-                    </div>
+                    <?php
+                    $ads = new WP_Query(array(
+                        'post_type' => 'quang-cao',
+                        'post_status' => 'publish',
+                        'orderby' => 'ID',
+                        'order' => 'DESC',
+                        'posts_per_page' => 5
+                    ));
+                    $i = 1;
+                    while ($ads->have_posts()) : $ads->the_post();
+                        $post_id = get_the_ID();
+                        $link_dang_ky = get_field_object('link_dang_ky', $post_id);
+                    ?>
+                        <?php if ($i == 1) {
+                        ?>
+                            <div class="header--ad float--right float--sm-none hidden-xs" style="width:60% ;margin-top:60px">
+                                <a href="<?php echo $link_dang_ky['value']; ?>" target="_blank">
+                                    <img src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="Advertisement">
+                                </a>
+                            </div>
+
+                        <?php } ?>
+
+                    <?php $i++;
+                    endwhile;
+                    wp_reset_query(); ?>
+
                     <!-- Header Ad End -->
                 </div>
             </div>
@@ -160,17 +179,17 @@
 
                         <nav class="main-nav d-none d-lg-block">
 
-                                <?php wp_nav_menu(
-                                    array(
-                                        'theme_location' => 'header-menu',
-                                        'container' => 'false',
-                                        'menu_id' => 'header-menu',
-                                        'menu_class' => 'menu'
-                                    )
-                                ); ?>
+                            <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'header-menu',
+                                    'container' => 'false',
+                                    'menu_id' => 'header-menu',
+                                    'menu_class' => 'menu'
+                                )
+                            ); ?>
 
-                            </nav>
-                       <!-- <ul class="header--menu-links nav navbar-nav" data-trigger="hoverIntent">
+                        </nav>
+                        <!-- <ul class="header--menu-links nav navbar-nav" data-trigger="hoverIntent">
                            
                              <li class="dropdown">
                             <a href="<?php echo home_url(); ?>/" class="dropdown-toggle" data-toggle="dropdown">Trang<i class="fa flm fa-angle-down"></i></a>

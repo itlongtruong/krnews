@@ -17,30 +17,33 @@ if (!empty(get_query_var('cat'))) {
 $args = array(
 	'taxonomy' => 'category',
 	'hide_empty' => false,
-	'order'            => 'DESC',	
+	'order'            => 'DESC',
 );
 $categories = get_terms($args);
 ?>
 <style>
-	.active >p{
-		color: red;
+	.nav .active>span {
+		color: #119ee6;
 	}
 </style>
-<aside class="single_sidebar_widget post_category_widget">
-	<h4 class="widget_title">Danh Mục</h4>
-	<ul class="list cat-list">
-		<?php
-		foreach ($categories as $category) {
-			$url = get_term_link($category);
-		?>
-			<li>
-				<a href="<?php echo $url; ?>" class="d-flex <?php echo $cat_id == $category->term_id ? 'active' : '' ?>">
-					<p><?php echo $category->name; ?> (<?php echo $category->count; ?>)</p>
 
-				</a>
-			</li>
-		<?php
-		}
-		?>
-	</ul>
-</aside>
+
+
+<div class="widget">
+	<div class="widget--title">
+		<h2 class="h4">Danh Mục</h2>
+		<i class="icon fa fa-folder-open-o"></i>
+	</div>
+	<div class="nav--widget">
+		<ul class="nav">
+			<?php
+			foreach ($categories as $category) {
+				$url = get_term_link($category);
+			?>
+				<li><a href="<?php echo $url; ?>"  class="d-flex <?php echo $cat_id == $category->term_id ? 'active' : '' ?>" ><span><?php echo $category->name; ?></span><span>(<?php echo $category->count; ?>)</span></a></li>
+			<?php
+			}
+			?>
+		</ul>
+	</div>
+</div>

@@ -37,7 +37,7 @@ pods_form_enqueue_style( 'pods-form' );
 										?>
 										<div id="misc-publishing-actions">
 											<?php
-											$datef = __( 'M j, Y @ G:i' );
+											$datef = __( 'd/m/Y @ G:i' );
 
 											if ( isset( $pod->pod_data['fields']['created'] ) ) {
 												$date = date_i18n( $datef, strtotime( $pod->field( 'created' ) ) );

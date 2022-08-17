@@ -20,12 +20,26 @@
 
         <div class="news-updates--list" data-marquee="true">
             <ul class="nav">
-
+            <?php 	
+			$args = array(
+				'post_type'        => 'danh-muc',		
+				'numberposts'      =>  10,
+				'orderby'          => 'date',
+				'order'            => 'DESC',		
+			);
+			$data = get_posts( $args );
+			?>
+				<?php
+					foreach ($data as $post) {
+						$post_id = get_the_ID(); 
+				?>
                 <li>
-                    <h3 class="h3"><a href="">Contrary to popular belief Lorem Ipsum is not simply random text.</a></h3>
+                    <h3 class="h3"><a href="<?php the_permalink(); ?>"><?php echo $post->post_title;?></a></h3>
                 </li>
 
-
+                <?php
+					}
+				?>	
             </ul>
         </div>
     </div>

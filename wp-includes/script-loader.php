@@ -413,7 +413,7 @@ function wp_default_packages_inline_scripts( $scripts ) {
 						/* translators: Date/Time format, see https://www.php.net/manual/datetime.format.php */
 						'datetime'            => __( 'F j, Y g:i a' ),
 						/* translators: Abbreviated date/time format, see https://www.php.net/manual/datetime.format.php */
-						'datetimeAbbreviated' => __( 'M j, Y g:i a' ),
+						'datetimeAbbreviated' => __( 'd/m/Y g:i a' ),
 					),
 					'timezone' => array(
 						'offset' => get_option( 'gmt_offset', 0 ),
