@@ -20,13 +20,6 @@
                     <span>Tin tức mới nhất</span>
                 </a>
             </li>
-
-            <li>
-                <a href="<?php echo home_url(); ?>/tin-nong">
-                    <i class="fa fa-fire"></i>
-                    <span>Tin nóng</span>
-                </a>
-            </li>
             <li>
                 <a href="<?php echo home_url(); ?>/tin-xem-nhieu-nhat">
                     <i class="fa fa-eye"></i>

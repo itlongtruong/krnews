@@ -39,10 +39,12 @@
             while ($tin_tuc->have_posts()) : $tin_tuc->the_post();
                 $post_id = get_the_ID();
             ?>
+             <?php if ($i == 1) {
+                ?>
                 <li class="col-md-4 col-xs-6 col-xxs-12">
                     <div class="post--item post--layout-1">
                         <div class="post--img">
-                            <a href="<?php the_permalink(); ?>" class="thumb"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category(); echo get_primary_category($category); ?></a>
+                            <a href="<?php the_permalink(); ?>" class="thumb"><img height="194px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category(); echo get_primary_category($category); ?></a>
                             <div class="post--info">
                                 <ul class="nav meta">
                                     <li><a href="#"><?php echo get_the_author(); ?></a></li>
@@ -58,6 +60,25 @@
                 <li class="col-xs-12 hidden shown-xxs">
                     <hr class="divider">
                 </li>
+                <?php } else { ?>
+                    <li class="col-md-4 col-xs-6 col-xxs-12">
+                    <div class="post--item post--layout-1">
+                        <div class="post--img">
+                            <a href="<?php the_permalink(); ?>" class="thumb"><img height="194px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a>
+                            <div class="post--info">
+                                <ul class="nav meta">
+                                    <li><a href="#"><?php echo get_the_author(); ?></a></li>
+                                    <li><a href="#"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
+                                </ul>
+                                <div class="title">
+                                    <h3 class="h4"><a href="<?php the_permalink(); ?>" class="btn-link"><?php the_title(); ?></a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                    <?php } ?>
             <?php $i++;
             endwhile;
             wp_reset_query(); ?>

@@ -66,7 +66,7 @@ do_action( 'pods_meta_box_pre', $pod, $obj );
 									?>
 									<div id="misc-publishing-actions">
 										<?php
-										$datef = __( 'd/m/Y @ G:i' );
+										$datef = __( 'M j, Y @ G:i' );
 
 										if ( isset( $pod->pod_data['fields']['created'] ) ) {
 											$date = date_i18n( $datef, strtotime( $pod->field( 'created' ) ) );

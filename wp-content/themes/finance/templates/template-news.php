@@ -43,7 +43,8 @@ $wp_query = new WP_Query(array(
                               <div class="post--item post--title-larger">
                                  <div class="row">
                                     <div class="col-md-4">
-                                       <div class="post--img"> <a href="<?php the_permalink(); ?>" class="thumb"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category(); echo get_primary_category($category); ?></a> </div>
+                                       <div class="post--img"> <a href="<?php the_permalink(); ?>" class="thumb"><img height="153px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category();
+                                                                                                                                                                                                                                                                                    echo get_primary_category($category); ?></a> </div>
                                     </div>
                                     <div class="col-md-8">
                                        <div class="post--info">
@@ -69,7 +70,7 @@ $wp_query = new WP_Query(array(
 
                   </ul>
                </div>
-               <?php htmlwp_pagination();?>
+               <?php htmlwp_pagination(); ?>
 
                <div class="resize-sensor" style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
                   <div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
@@ -83,15 +84,39 @@ $wp_query = new WP_Query(array(
          </div>
          <div class="main--sidebar col-md-4 col-sm-5 ptop--30 pbottom--30" data-sticky-content="true" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
             <div class="sticky-content-inner" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
-
+               <?php get_template_part('template-parts/sidebar/search-sidebar'); ?>
                <div class="widget">
                   <div class="widget--title">
                      <h2 class="h4">Quảng Cáo</h2>
                      <i class="icon fa fa-bullhorn"></i>
                   </div>
-                  <div class="ad--widget"> <a href="#"> <img src="img/ads-img/ad-300x250-2.jpg" alt="" data-rjs="2" data-rjs-processed="true"> </a> </div>
+                  <?php
+                  $ads = new WP_Query(array(
+                     'post_type' => 'quang-cao',
+                     'post_status' => 'publish',
+                     'orderby' => 'ID',
+                     'order' => 'DESC',
+                     'posts_per_page' => 2
+                  ));
+                  $i = 1;
+                  while ($ads->have_posts()) : $ads->the_post();
+                     $post_id = get_the_ID();
+                     $link_dang_ky = get_field_object('link_dang_ky', $post_id);
+                  ?>
+                     <?php if ($i == 2) {
+                     ?>
+
+                        <div class="widget">
+                           <div class="ad--widget"> <a href="<?php echo $link_dang_ky['value']; ?> " target="_blank"> <img src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"> </a> </div>
+                        </div>
+
+                     <?php } ?>
+
+                  <?php $i++;
+                  endwhile;
+                  wp_reset_query(); ?>
                </div>
-    
+
                <div class="resize-sensor" style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
                   <div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
                      <div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 400px; height: 3370px;"></div>

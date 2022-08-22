@@ -187,7 +187,7 @@ class Pods_Templates extends PodsComponent {
 			9  => sprintf(
 				__( '%1$s scheduled for: <strong>%2$s</strong>. <a target="_blank" rel="noopener noreferrer" href="%3$s">Preview %4$s</a>', 'pods' ), $labels->singular_name,
 				// translators: Publish box date format, see http://php.net/date
-				date_i18n( __( 'd/m/Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ), $labels->singular_name
+				date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ), $labels->singular_name
 			),
 			10 => sprintf( __( '%1$s draft updated. <a target="_blank" rel="noopener noreferrer" href="%2$s">Preview %3$s</a>', 'pods' ), $labels->singular_name, esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ), $labels->singular_name ),
 		);
@@ -199,7 +199,7 @@ class Pods_Templates extends PodsComponent {
 			$messages[ $post_type->name ][9] = sprintf(
 				__( '%1$s scheduled for: <strong>%2$s</strong>.', 'pods' ), $labels->singular_name,
 				// translators: Publish box date format, see http://php.net/date
-				date_i18n( __( 'd/m/Y @ G:i' ), strtotime( $post->post_date ) )
+				date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) )
 			);
 			$messages[ $post_type->name ][10] = sprintf( __( '%s draft updated.', 'pods' ), $labels->singular_name );
 		}

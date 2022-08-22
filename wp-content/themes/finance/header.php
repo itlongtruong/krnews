@@ -67,7 +67,7 @@ $current_date = current_datetime();
                         <!-- Header Topbar Info Start -->
                         <ul class="header--topbar-info nav">
                             <li><i class="fa fm fa-map-marker"></i>Krông Nô</li>
-                            <li><i class="fa fm fa-mixcloud"></i>21<sup>0</sup> C</li>
+                            <!-- <li><i class="fa fm fa-mixcloud"></i>25<sup>0</sup> C</li> -->
                             <li><i class="fa fm fa-calendar"></i><?php echo $current_date->format('d/m/Y'); ?></li>
                         </ul>
                         <!-- Header Topbar Info End -->
@@ -121,7 +121,7 @@ $current_date = current_datetime();
                         <h1 class="h1">
                             <a href="<?php echo home_url(); ?>/" class="btn-link">
                                 <video autoplay loop muted plays-inline width="60%">
-                                    <source src="<?php echo get_template_directory_uri(); ?>/assets/img/KCN (online-video-cutter.com).mp4" style="video/mp4">
+                                    <source src="<?php echo get_template_directory_uri(); ?>/assets/img/KRNew1.mp4" style="video/mp4">
                                 </video>
 
                             </a>
@@ -207,9 +207,9 @@ $current_date = current_datetime();
                     </div>
 
                     <!-- Header Search Form Start -->
-                    <form method="POST" action="" class="header--search-form float--right" data-form="validate">
+                    <form method="GET" action="<?php bloginfo('url'); ?>/" class="header--search-form float--right" data-form="validate">
 
-                        <input type="search" name="search" placeholder="Search..." class="header--search-control form-control" required>
+                        <input type="search" name="s" placeholder="Tìm Kiếm..." class="header--search-control form-control" required <?php if (is_search()) { ?>value="<?php the_search_query(); ?>" <?php } else { ?>value="" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" <?php } ?>>
 
                         <button type="submit" class="header--search-btn btn"><i class="header--search-icon fa fa-search"></i></button>
                     </form>

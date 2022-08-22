@@ -11,19 +11,20 @@
 
 get_header();
 ?>
-<?php get_template_part( 'template-parts/content/partner-news-hot' ); ?>
+<?php get_template_part('template-parts/content/partner-news-hot'); ?>
 <div class="main--breadcrumb">
-   <div class="container">
-      <ul class="breadcrumb">
-         <li><a href="<?php echo home_url(); ?>/" class="btn-link"><i class="fa fm fa-home"></i>Trang Chủ</a></li>
-         <li class="active"><span>Liên Hệ</span></li>
-      </ul>
-   </div>
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="<?php echo home_url(); ?>/" class="btn-link"><i class="fa fm fa-home"></i>Trang Chủ</a></li>
+            <li class="active"><span>Liên Hệ</span></li>
+        </ul>
+    </div>
 </div>
 <div class="contact--section pd--10-0">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-4 ptop--30 pbottom--30">
+
                 <div class="contact--info">
                     <ul class="nav">
                         <li>
@@ -32,7 +33,7 @@ get_header();
                             </div>
                             <div class="content">
                                 <p><a href="tel:0055667788991122">0988725058</a></p>
-                             
+
                             </div>
                         </li>
                         <li>
@@ -48,24 +49,44 @@ get_header();
                                 <h3 class="h5"><i class="fa fa-map-marker"></i>Địa Chỉ:</h3>
                             </div>
                             <div class="content">
-                                <p>House - 896, East Shewrapara</p>
-                                <p>Kafrul, Dhaka -1219, Bangladesh</p>
+                                <p>Krông Nô - Đăk Nông</p>
+                               
                             </div>
                         </li>
                     </ul>
                 </div>
+
             </div>
+
             <div class="col-md-9 col-sm-8 ptop--30 pbottom--30">
                 <div class="comment--form">
                     <div class="comment-respond">
-                        <form action="forms/contact-form.php" data-form="ajax" novalidate="novalidate">
-                            <div class="status"></div>
-                            <div class="row">
-                                <div class="col-xs-6 col-xxs-12"> <label> <span>Họ Và Tên: *</span> <input type="text" name="name" class="form-control" required="" aria-required="true"> </label> <label> <span>Email: *</span> <input type="email" name="email" class="form-control" required="" aria-required="true"> </label> <label> <span>Số Điện Thoại:</span> <input type="text" name="website" class="form-control"> </label> </div>
-                                <div class="col-xs-6 col-xxs-12"> <label> <span>Bình Luận: *</span> <textarea name="message" class="form-control" required="" aria-required="true"></textarea> </label> </div>
+
+                        <div class="status"></div>
+                        <!-- <div class="row">
+                                <div class="col-xs-6 col-xxs-12">
+                                    <label> <span>Họ Và Tên: *</span>
+                                        <input type="text" name="name" class="form-control" required="" aria-required="true">
+                                    </label>
+
+                                    <label> <span>Email: *</span>
+                                        <input type="email" name="email" class="form-control" required="" aria-required="true"> </label>
+
+                                    <label> <span>Số Điện Thoại:</span>
+                                        <input type="text" name="website" class="form-control">
+                                    </label>
+                                </div>
+                                <div class="col-xs-6 col-xxs-12">
+                                    <label> <span>Nội Dung: *</span>
+                                        <textarea name="message" class="form-control" required="" aria-required="true"></textarea>
+                                    </label>
+                                </div>
                                 <div class="col-md-12 text-right"> <button type="submit" class="btn btn-primary">Gửi</button> </div>
-                            </div>
-                        </form>
+                            </div> -->
+                        <?php
+                        echo do_shortcode('[contact-form-7 id="425" title="Form Lien He"]');
+                        ?>
+
                     </div>
                 </div>
             </div>

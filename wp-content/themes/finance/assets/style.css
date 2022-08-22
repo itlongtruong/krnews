@@ -168,7 +168,7 @@ img,
 .nav>li>a>img {
     /* RESPONSIVE IMAGES */
     max-width: 100%;
-    height: auto;
+ 
 }
 
 ::-moz-selection {
@@ -1776,14 +1776,14 @@ body.boxed>.wrapper {
     font-weight: 600;
 }
 
-.comment-respond label {
+.comment-respond div {
     display: block;
     margin-bottom: 8px;
     color: #777;
     font-weight: 400;
 }
 
-.comment-respond label span {
+.comment-respond div span {
     display: block;
     margin-bottom: 8px;
 }
@@ -7513,4 +7513,14 @@ body.isScrolling #backToTop {
 .main-nav .current-menu-item>a {
 
     border-bottom: 2px solid #119ee6;
+}
+
+
+.php-email-form button[type="submit"] {
+    background: #119ee6;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
 }

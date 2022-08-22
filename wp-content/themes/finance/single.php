@@ -35,7 +35,7 @@ get_header();
 
                     <div class="post--item post--single post--title-largest pd--30-0">
                         <div class="post--img">
-                            <a href="<?php the_permalink(); ?>" class="thumb"><img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a>
+                            <a href="<?php the_permalink(); ?>" class="thumb"><img height="500px" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a>
 
                         </div>
                         <div class="post--cats">
@@ -50,7 +50,7 @@ get_header();
                                 <li><a href="<?php the_permalink(); ?>"><?php echo get_the_author(); ?></a></li>
                                 <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
                                 <li><span><i class="fa fm fa-eye"></i><?php echo getPostViews(get_the_ID()); ?></span></li>
-                                <li><a href="<?php the_permalink(); ?>"><i class="fa fm fa-comments-o"></i>02</a></li>
+                                <!-- <li><a href="<?php the_permalink(); ?>"><i class="fa fm fa-comments-o"></i>02</a></li> -->
                             </ul>
                             <div class="title">
                                 <h2 class="h4"><?php the_title(); ?></h2>
@@ -62,7 +62,7 @@ get_header();
                     </div>
                     <?php wp_reset_postdata(); ?>
 
-                    <div class="ad--space pd--20-0-40"> <a href="#"> <img src="img/ads-img/ad-728x90-02.jpg" alt="" class="center-block" data-rjs="2" data-rjs-processed="true"> </a> </div>
+                    <!-- <div class="ad--space pd--20-0-40"> <a href="#"> <img src="img/ads-img/ad-728x90-02.jpg" alt="" class="center-block" data-rjs="2" data-rjs-processed="true"> </a> </div> -->
 
 
 
@@ -71,7 +71,7 @@ get_header();
                         <div class="post--items-title" data-ajax="tab">
                             <h2 class="h4">Bài viết liên quan:
                             </h2>
-                            <div class="nav"> <a href="#" class="prev btn-link" data-ajax-action="load_prev_related_posts"> <i class="fa fa-long-arrow-left"></i> </a> <span class="divider">/</span> <a href="#" class="next btn-link" data-ajax-action="load_next_related_posts"> <i class="fa fa-long-arrow-right"></i> </a> </div>
+
                         </div>
                         <div class="post--items post--items-2" data-ajax-content="outer">
                             <ul class="nav row" data-ajax-content="inner">
@@ -94,12 +94,12 @@ get_header();
                                         <li class="col-sm-6 pbottom--30">
                                             <div class="post--item post--layout-1">
                                                 <div class="post--img">
-                                                    <a href="#" class="thumb"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category();
-                                                                                                                                                                                                                                echo get_primary_category($category); ?></a>
+                                                    <a href="<?php the_permalink(); ?>" class="thumb"><img height="195px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category();
+                                                                                                                                                                                                                                                                        echo get_primary_category($category); ?></a>
                                                     <div class="post--info">
                                                         <ul class="nav meta">
                                                             <li><a href="<?php the_permalink(); ?>"><?php echo get_the_author(); ?></a></li>
-                                                            <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('M j, Y', strtotime($post->post_date)) ?></time></a></li>
+                                                            <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
                                                         </ul>
                                                         <div class="title">
                                                             <h3 class="h4"><a href="<?php the_permalink(); ?>" class="btn-link"><?php the_title(); ?></a></h3>
@@ -118,12 +118,10 @@ get_header();
                                 <?php endif; ?>
 
                             </ul>
-                            <div class="preloader bg--color-0--b" data-preloader="1">
-                                <div class="preloader--inner"></div>
-                            </div>
+
                         </div>
                     </div>
-                    <div class="comment--list pd--30-0">
+                    <!-- <div class="comment--list pd--30-0">
                         <div class="post--items-title">
                             <h2 class="h4">03 Comments</h2>
                             <i class="icon fa fa-comments-o"></i>
@@ -177,8 +175,8 @@ get_header();
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-                    <div class="comment--form pd--30-0">
+                    </div> -->
+                    <!-- <div class="comment--form pd--30-0">
                         <div class="post--items-title">
                             <h2 class="h4">Leave A Comment</h2>
                             <i class="icon fa fa-pencil-square-o"></i>
@@ -193,7 +191,7 @@ get_header();
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="resize-sensor" style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
                         <div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
                             <div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 790px; height: 3727px;"></div>
@@ -206,7 +204,7 @@ get_header();
             </div>
             <div class="main--sidebar col-md-4 ptop--30 pbottom--30" data-sticky-content="true" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
                 <div class="sticky-content-inner" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
-
+                <?php get_template_part('template-parts/sidebar/search-sidebar'); ?>              
                     <?php
                     $ads = new WP_Query(array(
                         'post_type' => 'quang-cao',
@@ -235,76 +233,45 @@ get_header();
 
                     <div class="widget">
                         <div class="widget--title" data-ajax="tab">
-                            <h2 class="h4">Editors Choice</h2>
-                            <div class="nav"> <a href="#" class="prev btn-link" data-ajax-action="load_prev_editors_choice_widget"> <i class="fa fa-long-arrow-left"></i> </a> <span class="divider">/</span> <a href="#" class="next btn-link" data-ajax-action="load_next_editors_choice_widget"> <i class="fa fa-long-arrow-right"></i> </a> </div>
+                            <h2 class="h4">Xem nhiều nhất</h2>
                         </div>
                         <div class="list--widget list--widget-1" data-ajax-content="outer">
                             <div class="post--items post--items-3">
                                 <ul class="nav" data-ajax-content="inner">
-                                    <li>
-                                        <div class="post--item post--layout-3">
-                                            <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/editors-choice-01.jpg" alt="" data-rjs="2" data-rjs-processed="true"></a>
-                                                <div class="post--info">
-                                                    <ul class="nav meta">
-                                                        <li><a href="#">Ninurta</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
-                                                    </ul>
-                                                    <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
+                                    <?php
+                                    $wp_query = new WP_Query(array(
+                                        'post_type'        => 'danh-muc',
+                                        'posts_per_page' => 4,
+                                        'meta_key'          =>  'post_views_count',
+                                        'orderby'           =>  'meta_value_num',
+                                        'paged' =>  get_query_var('paged')
+                                    ));
+                                    ?>
+                                    <?php if ($wp_query->have_posts()) : ?>
+                                        <?php while ($wp_query->have_posts()) : $wp_query->the_post();
+                                            $post_id = get_the_ID();
+                                        ?>
+                                            <li>
+                                                <div class="post--item post--layout-3">
+                                                    <div class="post--img">
+                                                        <a href="<?php the_permalink(); ?>" class="thumb"><img height="75px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a>
+                                                        <div class="post--info">
+                                                            <ul class="nav meta">
+                                                                <li><a href="<?php the_permalink(); ?>"><?php echo get_the_author(); ?></a></li>
+                                                                <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
+                                                            </ul>
+                                                            <div class="title">
+                                                                <h3 class="h4"><a href="<?php the_permalink(); ?>" class="btn-link"><?php the_title(); ?></a></h3>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post--item post--layout-3">
-                                            <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/editors-choice-02.jpg" alt="" data-rjs="2" data-rjs-processed="true"></a>
-                                                <div class="post--info">
-                                                    <ul class="nav meta">
-                                                        <li><a href="#">Orcus</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
-                                                    </ul>
-                                                    <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post--item post--layout-3">
-                                            <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/editors-choice-03.jpg" alt="" data-rjs="2" data-rjs-processed="true"></a>
-                                                <div class="post--info">
-                                                    <ul class="nav meta">
-                                                        <li><a href="#">Rahab</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
-                                                    </ul>
-                                                    <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post--item post--layout-3">
-                                            <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/editors-choice-04.jpg" alt="" data-rjs="2" data-rjs-processed="true"></a>
-                                                <div class="post--info">
-                                                    <ul class="nav meta">
-                                                        <li><a href="#">Tannin</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
-                                                    </ul>
-                                                    <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            </li>
+
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+
+
                                 </ul>
                                 <div class="preloader bg--color-0--b" data-preloader="1">
                                     <div class="preloader--inner"></div>

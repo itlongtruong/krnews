@@ -15,11 +15,13 @@ get_header();
 <div class="main--breadcrumb">
   <div class="container">
     <ul class="breadcrumb">
-      <li><a href="<?php echo home_url(); ?>/" class="btn-link"><i class="fa fm fa-home"></i>Home</a></li>
+      <li><a href="<?php echo home_url(); ?>/" class="btn-link"><i class="fa fm fa-home"></i>Trang Chủ</a></li>
       <li class="active"><span>404</span></li>
     </ul>
   </div>
 </div>
+
+<?php get_template_part( 'template-parts/content/partner-news-hot' ); ?>
 
 <!-- ======= Blog Section ======= -->
 <div class="contact--section pd--10-0">

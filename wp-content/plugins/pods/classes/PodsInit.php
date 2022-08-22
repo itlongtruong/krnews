@@ -158,7 +158,8 @@ class PodsInit {
 
 		// Setup common info for after TEC/ET load.
 		add_action( 'plugins_loaded', [ $this, 'maybe_set_common_lib_info' ], 1 );
-		add_action( 'tribe_common_loaded', [ $this, 'run' ], 0 );
+		add_action( 'plugins_loaded', [ $this, 'maybe_load_common' ], 11 );
+		add_action( 'tribe_common_loaded', [ $this, 'run' ], 11 );
 	}
 
 	/**
@@ -289,6 +290,23 @@ class PodsInit {
 				add_filter( 'tribe_debug_bar_panels', '__return_empty_array', 15 );
 			}
 		}
+	}
+
+	/**
+	 * If common was registered but not ultimately loaded, register ours and load it.
+	 *
+	 * @since 2.9.2
+	 */
+	public function maybe_load_common() {
+		// Don't load if Common is already loaded or if Common info was never registered.
+		if ( empty( $GLOBALS['tribe-common-info'] ) || did_action( 'tribe_common_loaded' ) ) {
+			return;
+		}
+
+		// Reset common info so we can register ours.
+		$GLOBALS['tribe-common-info'] = null;
+
+		$this->maybe_set_common_lib_info();
 	}
 
 	/**
@@ -2113,7 +2131,7 @@ class PodsInit {
 				9  => sprintf(
 					__( '%1$s scheduled for: <strong>%2$s</strong>. <a target="_blank" rel="noopener noreferrer" href="%3$s">Preview %4$s</a>', 'pods' ), $labels['singular_name'],
 					// translators: Publish box date format, see http://php.net/date
-					date_i18n( __( 'd/m/Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ), $labels['singular_name']
+					date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ), $labels['singular_name']
 				),
 				10 => sprintf( __( '%1$s draft updated. <a target="_blank" rel="noopener noreferrer" href="%2$s">Preview %3$s</a>', 'pods' ), $labels['singular_name'], esc_url( $preview_post_link ), $labels['singular_name'] ),
 			);
@@ -2125,7 +2143,7 @@ class PodsInit {
 				$messages[ $post_type['name'] ][9] = sprintf(
 					__( '%1$s scheduled for: <strong>%2$s</strong>.', 'pods' ), $labels['singular_name'],
 					// translators: Publish box date format, see http://php.net/date
-					date_i18n( __( 'd/m/Y @ G:i' ), strtotime( $post->post_date ) )
+					date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) )
 				);
 				$messages[ $post_type['name'] ][10] = sprintf( __( '%s draft updated.', 'pods' ), $labels['singular_name'] );
 			}
@@ -2532,7 +2550,6 @@ class PodsInit {
 	}
 
 	public function run() {
-
 		static $ran;
 
 		if ( ! empty( $ran ) ) {
