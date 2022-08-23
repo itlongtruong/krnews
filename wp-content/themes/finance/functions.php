@@ -837,7 +837,25 @@ function get_primary_category($category)
 
 
 
-
+/*Thay đổi logo trang đăng nhập*/
+function login_page_logo() {
+	echo '<style>.login h1 a {
+	background-repeat: no-repeat;
+	background-image: url(http://localhost/krnews/wp-content/uploads/2022/08/123logo.png);
+	background-position: center center;
+	background-size: contain !important;
+	width: 100% !important;
+	}
+	</style>';
+	}
+	add_action( 'login_head', 'login_page_logo' );
+	
+	/*Thay đổi link url logo trang đăng nhập*/
+	function login_page_URL( $url ) {
+	$url = home_url( '/' );
+	return $url;
+	}
+	add_filter( 'login_headerurl', 'login_page_URL' );
 
 
 

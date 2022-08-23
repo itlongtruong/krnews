@@ -23,11 +23,11 @@ $current_date = current_datetime();
     <?php wp_head(); ?>
 
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/123logo.png">
 
 
 
-    <link rel="icon" href="favicon.png" type="<?php echo get_template_directory_uri(); ?>/assets/img/KCN.png">
+    <link rel="icon" href="favicon.png" type="<?php echo get_template_directory_uri(); ?>/assets/img/logonkrn.png">
 
     <!-- ==== Google Font ==== -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
@@ -66,7 +66,7 @@ $current_date = current_datetime();
                     <div class="float--left float--xs-none text-xs-center">
                         <!-- Header Topbar Info Start -->
                         <ul class="header--topbar-info nav">
-                            <li><i class="fa fm fa-map-marker"></i>Krông Nô</li>
+                            <li><i class="fa fm fa-map-marker"></i>Krông Nô, Đăk Nông</li>
                             <!-- <li><i class="fa fm fa-mixcloud"></i>25<sup>0</sup> C</li> -->
                             <li><i class="fa fm fa-calendar"></i><?php echo $current_date->format('d/m/Y'); ?></li>
                         </ul>
@@ -75,6 +75,13 @@ $current_date = current_datetime();
 
                     <div class="float--right float--xs-none text-xs-center">
                         <!-- Header Topbar Action Start -->
+                        <ul class="header--topbar-social nav hidden-sm hidden-xxs">
+                            <li><a href="https://www.facebook.com/KRNews.TinTucKrongNo"><i class="fa fa-facebook"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href=""><i class="fa fa-youtube-play"></i></a></li> -->
+                        </ul>
                         <ul class="header--topbar-action nav">
 
                             <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
@@ -93,21 +100,7 @@ $current_date = current_datetime();
 
 
                         </ul>
-                        <!-- Header Topbar Action End -->
 
-                        <!-- Header Topbar Language Start -->
-
-                        <!-- Header Topbar Language End -->
-
-                        <!-- Header Topbar Social Start -->
-                        <ul class="header--topbar-social nav hidden-sm hidden-xxs">
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href=""><i class="fa fa-youtube-play"></i></a></li>
-                        </ul>
-                        <!-- Header Topbar Social End -->
                     </div>
                 </div>
             </div>

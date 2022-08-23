@@ -47,7 +47,7 @@ get_header();
                         </div>
                         <div class="post--info">
                             <ul class="nav meta">
-                                <li><a href="<?php the_permalink(); ?>"><?php echo get_the_author(); ?></a></li>
+                                <li><a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo get_the_author(); ?></a></li>
                                 <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
                                 <li><span><i class="fa fm fa-eye"></i><?php echo getPostViews(get_the_ID()); ?></span></li>
                                 <!-- <li><a href="<?php the_permalink(); ?>"><i class="fa fm fa-comments-o"></i>02</a></li> -->
@@ -98,7 +98,7 @@ get_header();
                                                                                                                                                                                                                                                                         echo get_primary_category($category); ?></a>
                                                     <div class="post--info">
                                                         <ul class="nav meta">
-                                                            <li><a href="<?php the_permalink(); ?>"><?php echo get_the_author(); ?></a></li>
+                                                            <li><a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo get_the_author(); ?></a></li>
                                                             <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
                                                         </ul>
                                                         <div class="title">
@@ -204,7 +204,7 @@ get_header();
             </div>
             <div class="main--sidebar col-md-4 ptop--30 pbottom--30" data-sticky-content="true" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
                 <div class="sticky-content-inner" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
-                <?php get_template_part('template-parts/sidebar/search-sidebar'); ?>              
+                    <?php get_template_part('template-parts/sidebar/search-sidebar'); ?>
                     <?php
                     $ads = new WP_Query(array(
                         'post_type' => 'quang-cao',

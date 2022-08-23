@@ -27,7 +27,7 @@ $wp_query = new WP_Query(array(
     <div class="container">
         <ul class="breadcrumb">
             <li><a href="<?php echo home_url(); ?>/" class="btn-link"><i class="fa fm fa-home"></i>Trang Chủ</a></li>
-            <li class="active"><span> <?php echo get_the_author_meta( 'nicename', $iduser ); ?> </span></li>
+            <li class="active"><span> <?php echo get_the_author_meta( 'display_name', $iduser ); ?> </span></li>
         </ul>
     </div>
 </div>
@@ -37,7 +37,7 @@ $wp_query = new WP_Query(array(
         <div class="row" style="transform: none;">
             <div class="main--content col-md-8 col-sm-7" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
                 <div class="sticky-content-inner" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; left: 189.6px;">
-                <div class="page--title ptop--30"> <h2 class="h2">Tác Giả: <?php echo get_the_author_meta( 'nicename', $iduser ); ?></h2> </div>
+                <div class="page--title ptop--30"> <h2 class="h2">Tác Giả: <?php echo get_the_author_meta( 'display_name', $iduser ); ?></h2> </div>
                     <div class="post--items post--items-5 pd--30-0">
                         <ul class="nav">
                             <?php if ($wp_query->have_posts()) : ?>

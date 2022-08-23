@@ -202,7 +202,7 @@ get_header();
                                                         <a href="<?php the_permalink(); ?>" class="thumb"><img height="75px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a>
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="<?php the_permalink(); ?>"><?php echo get_the_author(); ?></a></li>
+                                                                <li><a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo get_the_author(); ?></a></li>
                                                                 <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
                                                             </ul>
                                                             <div class="title">

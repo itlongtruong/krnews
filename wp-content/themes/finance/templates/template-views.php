@@ -51,7 +51,7 @@ $wp_query = new WP_Query(array(
                                     <div class="col-md-8">
                                        <div class="post--info">
                                           <ul class="nav meta">
-                                             <li><a href="#"><?php echo get_the_author(); ?></a></li>
+                                             <li><a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo get_the_author(); ?></a></li>
                                              <li><a href="#"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
                                           </ul>
                                           <div class="title">
