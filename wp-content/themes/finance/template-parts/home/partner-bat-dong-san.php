@@ -41,8 +41,8 @@
             ?>
                 <?php if ($i == 1) {
                 ?>
-                    <li class="col-md-6">
-                        <div class="post--item post--layout-2">
+                      <li class="col-xs-6">
+                        <div class="post--item post--layout-1">
                             <div class="post--img">
                                 <a href="<?php the_permalink(); ?>" class="thumb"><img height="243px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category(); echo get_primary_category($category); ?></a>
                                 <div class="post--info">

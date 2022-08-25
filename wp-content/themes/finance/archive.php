@@ -22,7 +22,41 @@ $author_id  = get_post_field( 'post_author', get_the_ID() );
 //$url = get_author_posts_url(get_the_author_meta('ID'));
 //$author = the_author();
 ?>
-<?php get_template_part('template-parts/content/partner-news-hot'); ?>
+<div class="news--ticker">
+    <div class="container">
+        <div class="title">
+            <h2>Tin mới cập nhật</h2>
+
+        </div>
+
+        <div class="news-updates--list" data-marquee="true">
+            <ul class="nav">
+            <?php 	
+			$args = array(
+				'post_type'        => 'danh-muc',		
+				'numberposts'      =>  10,
+                'cat'       => $cat_id,
+				'orderby'          => 'date',
+				'order'            => 'DESC',
+                		
+			);
+			$data = get_posts( $args );
+			?>
+				<?php
+					foreach ($data as $post) {
+						$post_id = get_the_ID(); 
+				?>
+                <li>
+                    <h3 class="h3"><a href="<?php the_permalink(); ?>"><?php echo $post->post_title;?></a></h3>
+                </li>
+
+                <?php
+					}
+				?>	
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="main--breadcrumb">
     <div class="container">
         <ul class="breadcrumb">

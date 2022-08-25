@@ -57,12 +57,6 @@ get_header();
                             <iframe src="https://thoitiet.vn/embed/mlpbipguvkp?days=3&hC=%23ffffff&hB=%23119ee6&tC=%23848484&bC=%23119ee6&lC=%23dddddd" id="widgeturl" width="100%" height="297" scrolling="no" frameborder="0" allowtransparency="true" style="border:none;overflow:hidden;"></iframe><!-- End Widget -->
                         </div>
                     </div>
-
-
-
-
-
-
                     <div class="widget">
                         <div class="widget--title">
                             <h2 class="h4">Kết Nối Với Chúng Tôi</h2>

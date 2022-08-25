@@ -15,7 +15,7 @@ get_the_author_meta( 'nicename', $iduser );
 $wp_query = new WP_Query(array(
     'post_type'        => 'danh-muc',
     'author' => $iduser,
-    'posts_per_page' => 2,
+    'posts_per_page' => 10,
     'paged' =>  get_query_var('paged'),
 
 

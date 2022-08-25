@@ -11,13 +11,45 @@
 get_header();
 $wp_query = new WP_Query(array(
    'post_type'        => 'danh-muc',
-   'posts_per_page' => 2,
+   'posts_per_page' => 10,
    'meta_key'          =>  'post_views_count',
    'orderby'           =>  'meta_value_num',
    'paged' =>  get_query_var('paged')
 ));
 ?>
-<?php get_template_part('template-parts/content/partner-news-hot'); ?>
+<div class="news--ticker">
+   <div class="container">
+      <div class="title">
+         <h2>Tin mới cập nhật</h2>
+      </div>
+      <div class="news-updates--list" data-marquee="true">
+         <ul class="nav">
+            <?php
+            $args = array(
+               'post_type'        => 'danh-muc',
+               'numberposts'      =>  10,
+               'meta_key'          =>  'post_views_count',
+               'orderby'           =>  'meta_value_num',
+               'order'            => 'DESC',
+
+            );
+            $data = get_posts($args);
+            ?>
+            <?php
+            foreach ($data as $post) {
+               $post_id = get_the_ID();
+            ?>
+               <li>
+                  <h3 class="h3"><a href="<?php the_permalink(); ?>"><?php echo $post->post_title; ?></a></h3>
+               </li>
+
+            <?php
+            }
+            ?>
+         </ul>
+      </div>
+   </div>
+</div>
 <div class="main--breadcrumb">
    <div class="container">
       <ul class="breadcrumb">
@@ -98,7 +130,7 @@ $wp_query = new WP_Query(array(
                      'post_status' => 'publish',
                      'orderby' => 'ID',
                      'order' => 'DESC',
-                     'posts_per_page' => 2
+                     'posts_per_page' => 10
                   ));
                   $i = 1;
                   while ($ads->have_posts()) : $ads->the_post();
