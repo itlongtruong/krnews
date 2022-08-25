@@ -86,7 +86,7 @@ $wp_query = new WP_Query(array(
             <div class="sticky-content-inner" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
                <?php get_template_part('template-parts/sidebar/search-sidebar'); ?>
                <?php get_template_part('template-parts/sidebar/category-sidebar'); ?>
-               
+
                <div class="widget">
                   <div class="widget--title">
                      <h2 class="h4">Quảng Cáo</h2>
