@@ -11,7 +11,7 @@
 get_header();
 $wp_query = new WP_Query(array(
    'post_type'        => 'danh-muc',
-   'posts_per_page' => 10,
+   'posts_per_page' => 20,
    'paged' =>  get_query_var('paged')
 ));
 ?>
@@ -85,6 +85,8 @@ $wp_query = new WP_Query(array(
          <div class="main--sidebar col-md-4 col-sm-5 ptop--30 pbottom--30" data-sticky-content="true" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
             <div class="sticky-content-inner" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
                <?php get_template_part('template-parts/sidebar/search-sidebar'); ?>
+               <?php get_template_part('template-parts/sidebar/category-sidebar'); ?>
+               
                <div class="widget">
                   <div class="widget--title">
                      <h2 class="h4">Quảng Cáo</h2>

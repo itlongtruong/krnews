@@ -22,7 +22,6 @@ $current_date = current_datetime();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <?php wp_head(); ?>
 
-    <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/123logo.png">
 
 
