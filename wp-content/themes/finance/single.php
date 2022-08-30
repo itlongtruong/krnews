@@ -48,7 +48,7 @@ get_header();
                         <div class="post--info">
                             <ul class="nav meta">
                                 <li><a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo get_the_author(); ?></a></li>
-                                <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d/m/Y', strtotime($post->post_date)) ?></time></a></li>
+                                <li><a href="<?php the_permalink(); ?>"><time datetime="<?php echo date('Y-m-d', strtotime($post->post_date)) ?>"><?php echo date('d-m-Y H:i:s', strtotime($post->post_date)) ?></time></a></li>
                                 <li><span><i class="fa fm fa-eye"></i><?php echo getPostViews(get_the_ID()); ?></span></li>
                                 <!-- <li><a href="<?php the_permalink(); ?>"><i class="fa fm fa-comments-o"></i>02</a></li> -->
                             </ul>
@@ -81,7 +81,7 @@ get_header();
                                 foreach ($categories as $individual_category) $category_ids[] = $individual_category->term_id;
 
                                 $query = new WP_Query(array(
-                                    'post_type'        => 'danh-muc',
+                                    'post_type'        => 'post',
                                     'showposts'      =>  2,
                                     'post__not_in' => array($post->ID),
                                     'cat'       => $category_ids,
@@ -240,7 +240,7 @@ get_header();
                                 <ul class="nav" data-ajax-content="inner">
                                     <?php
                                     $wp_query = new WP_Query(array(
-                                        'post_type'        => 'danh-muc',
+                                        'post_type' => 'post',
                                         'posts_per_page' => 4,
                                         'meta_key'          =>  'post_views_count',
                                         'orderby'           =>  'meta_value_num',

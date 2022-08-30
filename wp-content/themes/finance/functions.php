@@ -838,7 +838,8 @@ function get_primary_category($category)
 
 
 /*Thay đổi logo trang đăng nhập*/
-function login_page_logo() {
+function login_page_logo()
+{
 	echo '<style>.login h1 a {
 	background-repeat: no-repeat;
 	background-image: url(http://localhost/krnews/wp-content/uploads/2022/08/123logo.png);
@@ -847,16 +848,168 @@ function login_page_logo() {
 	width: 100% !important;
 	}
 	</style>';
-	}
-	add_action( 'login_head', 'login_page_logo' );
-	
-	/*Thay đổi link url logo trang đăng nhập*/
-	function login_page_URL( $url ) {
-	$url = home_url( '/' );
+}
+add_action('login_head', 'login_page_logo');
+
+/*Thay đổi link url logo trang đăng nhập*/
+function login_page_URL($url)
+{
+	$url = home_url('/');
 	return $url;
+}
+add_filter('login_headerurl', 'login_page_URL');
+
+
+// add_filter('posts_search', 'pvs_search_is_exact', 20, 2);
+// function pvs_search_is_exact($search, $wp_query)
+// {
+
+// 	global $wpdb;
+
+// 	if (empty($search))
+// 		return $search;
+
+// 	$q = $wp_query->query_vars;
+// 	$n = !empty($q['exact']) ? '' : '%';
+
+// 	$search = $searchand = '';
+
+// 	foreach ((array)$q['search_terms'] as $term) :
+
+// 		$term = esc_sql(like_escape($term));
+
+// 		$search .= "{$searchand}($wpdb->posts.post_title REGEXP '[[:<:]]{$term}[[:>:]]')";
+
+// 		$searchand = ' AND ';
+
+// 	endforeach;
+
+// 	if (!empty($search)) :
+// 		$search = " AND ({$search}) ";
+// 		if (!is_user_logged_in())
+// 			$search .= " AND ($wpdb->posts.post_password = '') ";
+// 	endif;
+
+// 	return $search;
+// }
+function hocwp_theme_custom_limit_search_title_only($search, $wp_query)
+{
+	global $wpdb;
+	if (empty($search)) {
+		return $search;
 	}
-	add_filter( 'login_headerurl', 'login_page_URL' );
+	$q = $wp_query->query_vars;
+	$n = !empty($q['exact']) ? '' : '%';
+	$search = '';
+	$searchand = '';
+	$terms = (array)$q['search_terms'];
+	foreach ($terms as $term) {
+		$term = esc_sql($wpdb->esc_like($term));
+		$search .= "{$searchand}($wpdb->posts.post_title LIKE '{$n}{$term}{$n}')";
+		$searchand = ' AND ';
+	}
+	if (!empty($search)) {
+		$search = " AND ({$search}) ";
+		if (!is_user_logged_in()) {
+			$search .= " AND ($wpdb->posts.post_password = '') ";
+		}
+	}
+	return $search;
+}
+add_filter('posts_search', 'hocwp_theme_custom_limit_search_title_only', 500, 2);
+
+// Remove Parent Category from Child Category URL
+add_filter('term_link', 'devvn_no_category_parents', 1000, 3);
+function devvn_no_category_parents($url, $term, $taxonomy)
+{
+	if ($taxonomy == 'category') {
+		$term_nicename = $term->slug;
+		$url = trailingslashit(get_option('home')) . user_trailingslashit($term_nicename, 'category');
+	}
+	return $url;
+}
+// Rewrite url mới
+function devvn_no_category_parents_rewrite_rules($flash = false)
+{
+	$terms = get_terms(array(
+		'taxonomy' => 'category',
+		'post_type' => 'post',
+		'hide_empty' => false,
+	));
+	if ($terms && !is_wp_error($terms)) {
+		foreach ($terms as $term) {
+			$term_slug = $term->slug;
+			add_rewrite_rule($term_slug . '/?$', 'index.php?category_name=' . $term_slug, 'top');
+			add_rewrite_rule($term_slug . '/page/([0-9]{1,})/?$', 'index.php?category_name=' . $term_slug . '&paged=$matches[1]', 'top');
+			add_rewrite_rule($term_slug . '/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?category_name=' . $term_slug . '&feed=$matches[1]', 'top');
+		}
+	}
+	if ($flash == true)
+		flush_rewrite_rules(false);
+}
+add_action('init', 'devvn_no_category_parents_rewrite_rules');
+
+/*Sửa lỗi khi tạo mới category bị 404*/
+function devvn_new_category_edit_success()
+{
+	devvn_no_category_parents_rewrite_rules(true);
+}
+add_action('created_category', 'devvn_new_category_edit_success');
+add_action('edited_category', 'devvn_new_category_edit_success');
+add_action('delete_category', 'devvn_new_category_edit_success');
 
 
+// loai page ra khoi tim kiem
+function SearchFilter($query)
+{
+	if (is_admin() || !$query->is_main_query())
+		return;
+	if ($query->is_search) {
+		$query->set('post_type', 'post');
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'SearchFilter');
 
+//ham tính thời gian đăng ...trước
+function vi_human_time_diff($from, $to = '')
+{
+	if (empty($to))
+		$to = time();
+	$diff = (int) abs($to - $from);
+	if ($diff > 259200)
+		return false;
+	if ($diff < HOUR_IN_SECONDS) {
+		$mins = round($diff / MINUTE_IN_SECONDS);
+		if ($mins <= 1)
+			$mins = 1;
+		/* translators: min=minute */
+		$since = sprintf(_n('%s phút', '%s phút', $mins), $mins);
+	} elseif ($diff < DAY_IN_SECONDS && $diff >= HOUR_IN_SECONDS) {
+		$hours = round($diff / HOUR_IN_SECONDS);
+		if ($hours <= 1)
+			$hours = 1;
+		$since = sprintf(_n('%s giờ', '%s giờ', $hours), $hours);
+	} elseif ($diff < WEEK_IN_SECONDS && $diff >= DAY_IN_SECONDS) {
+		$days = round($diff / DAY_IN_SECONDS);
+		if ($days <= 1)
+			$days = 1;
+		$since = sprintf(_n('%s ngày', '%s ngày', $days), $days);
+	} elseif ($diff < 30 * DAY_IN_SECONDS && $diff >= WEEK_IN_SECONDS) {
+		$weeks = round($diff / WEEK_IN_SECONDS);
+		if ($weeks <= 1)
+			$weeks = 1;
+		$since = sprintf(_n('%s tuần', '%s tuần', $weeks), $weeks);
+	} elseif ($diff < YEAR_IN_SECONDS && $diff >= 30 * DAY_IN_SECONDS) {
+		$months = round($diff / (30 * DAY_IN_SECONDS));
+		if ($months <= 1) $months = 1;
+		$since = sprintf(_n('%s tháng', '%s tháng', $months), $months);
+	} elseif ($diff >= YEAR_IN_SECONDS) {
+		$years = round($diff / YEAR_IN_SECONDS);
+		if ($years <= 1)
+			$years = 1;
+		$since = sprintf(_n('%s năm', '%s năm', $years), $years);
+	}
+	return $since;
+}
 ?>

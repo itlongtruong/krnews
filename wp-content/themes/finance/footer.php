@@ -77,7 +77,44 @@
 <!-- ==== Main JavaScript ==== -->
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.js"></script>
 <!-- Footer Section End -->
+<script>
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
 
+    function startTime() {
+        // Lấy Object ngày hiện tại
+        var today = new Date();
+
+        // Giờ, phút, giây hiện tại
+        var d = today.getDate();
+        var thu = today.getDay();
+        var month = today.getMonth() + 1;
+        var y = today.getFullYear();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+
+        // Chuyển đổi sang dạng 01, 02, 03
+        m = checkTime(m);
+        s = checkTime(s);
+        d = checkTime(d);
+        month = checkTime(month);
+        const dayname = ['Chủ Nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+        // Ghi ra trình duyệt
+        document.getElementById('hvn').innerHTML = dayname[thu] + ", Ngày " + d + "/" + month + "/" + y + "  " + h + ":" + m + ":" + s;
+
+        // Dùng hàm setTimeout để thiết lập gọi lại 0.5 giây / lần
+        var t = setTimeout(function() {
+            startTime();
+        }, 500);
+    }
+
+    startTime();
+</script>
 
 </body>
 

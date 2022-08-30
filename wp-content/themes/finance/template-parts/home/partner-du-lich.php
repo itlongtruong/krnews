@@ -20,7 +20,7 @@
         <ul class="nav row" data-ajax-content="inner">
             <?php
             $tin_tuc = new WP_Query(array(
-                'post_type' => 'danh-muc',
+                'post_type' => 'post',
                 'post_status' => 'publish',
                 'tax_query' => array(
                     array(

@@ -56,11 +56,6 @@ get_header();
                             );
                             ?>
                         </h4>
-
-                    <?php else : ?>
-
-                        <h1 class="page-title"><?php esc_html_e('Nothing here', 'twentytwentyone'); ?></h1>
-
                     <?php endif; ?>
 
                     <div class="post--items post--items-5 pd--30-0">

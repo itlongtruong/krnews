@@ -10,7 +10,8 @@
  */
 get_header();
 $wp_query = new WP_Query(array(
-   'post_type'        => 'danh-muc',
+   'post_type' => 'post',
+   'post_status' => 'publish',
    'posts_per_page' => 10,
    'meta_key'          =>  'post_views_count',
    'orderby'           =>  'meta_value_num',
@@ -26,7 +27,8 @@ $wp_query = new WP_Query(array(
          <ul class="nav">
             <?php
             $args = array(
-               'post_type'        => 'danh-muc',
+               'post_type' => 'post',
+               'post_status' => 'publish',
                'numberposts'      =>  10,
                'meta_key'          =>  'post_views_count',
                'orderby'           =>  'meta_value_num',

@@ -10,8 +10,9 @@
  */
 get_header();
 $wp_query = new WP_Query(array(
-   'post_type'        => 'danh-muc',
-   'posts_per_page' => 20,
+   'post_type' => 'post',
+   'post_status' => 'publish',
+   'posts_per_page' => 10,
    'paged' =>  get_query_var('paged')
 ));
 ?>

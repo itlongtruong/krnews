@@ -14,8 +14,8 @@ get_header();
 <?php $category = get_category(get_query_var('cat'));
 $cat_id = $category->cat_ID;
 $wp_query = new WP_Query(array(
-    'post_type'        => 'danh-muc',
-    'posts_per_page' => 4,
+    'post_type' => 'post',
+    'posts_per_page' => 2,
     'paged' =>  get_query_var('paged'),
     'cat'       => $cat_id
 
@@ -32,7 +32,7 @@ $author_id  = get_post_field('post_author', get_the_ID()); ?>
             <ul class="nav">
                 <?php
                 $args = array(
-                    'post_type'        => 'danh-muc',
+                    'post_type' => 'post',
                     'numberposts'      =>  10,
                     'cat'       => $cat_id,
                     'orderby'          => 'date',
@@ -51,7 +51,7 @@ $author_id  = get_post_field('post_author', get_the_ID()); ?>
 
                 <?php
                 }
-                ?>
+                wp_reset_query(); ?>
             </ul>
         </div>
     </div>
@@ -82,8 +82,8 @@ $author_id  = get_post_field('post_author', get_the_ID()); ?>
                                         <div class="post--item post--title-larger">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <div class="post--img"> <a href="<?php the_permalink(); ?>" class="thumb"><img height="153px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category();
-                                                                                                                                                                                                                                                                                                echo get_primary_category($category); ?></a> </div>
+                                                    <div class="post--img"> <a href="<?php the_permalink(); ?>" class="thumb"><img src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category();
+                                                                                                                                                                                                                                                                                echo get_primary_category($category); ?></a> </div>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="post--info">

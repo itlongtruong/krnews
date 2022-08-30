@@ -65,9 +65,9 @@ $current_date = current_datetime();
                     <div class="float--left float--xs-none text-xs-center">
                         <!-- Header Topbar Info Start -->
                         <ul class="header--topbar-info nav">
-                            <li><i class="fa fm fa-map-marker"></i>Krông Nô, Đăk Nông</li>
+                            <li><a href="<?php echo home_url(); ?>/lien-he"><i class="fa fm fa-map-marker"></i>Krông Nô, Đăk Nông</a></li>
                             <!-- <li><i class="fa fm fa-mixcloud"></i>25<sup>0</sup> C</li> -->
-                            <li><i class="fa fm fa-calendar"></i><?php echo $current_date->format('d/m/Y'); ?></li>
+                            <li><i class="fa fm fa-calendar"></i><span id="hvn"></span></li>
                         </ul>
                         <!-- Header Topbar Info End -->
                     </div>
@@ -81,9 +81,9 @@ $current_date = current_datetime();
                             <li><a href="#"><i class="fa fa-rss"></i></a></li>
                             <li><a href=""><i class="fa fa-youtube-play"></i></a></li> -->
                         </ul>
-                        <ul class="header--topbar-action nav">
+                        <!-- <ul class="header--topbar-action nav">
 
-                            <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fm fa-user-o"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="" href="">Đăng xuất</a></li>
@@ -92,13 +92,13 @@ $current_date = current_datetime();
 
                                 </form>
                             </ul>
-                        </li> -->
+                        </li> 
 
 
                             <li><a href="<?php echo home_url(); ?>/login"><i class="fa fm fa-user-o"></i>Đăng nhập/Đăng ký</a></li>
 
 
-                        </ul>
+                        </ul> -->
 
                     </div>
                 </div>
@@ -213,3 +213,4 @@ $current_date = current_datetime();
         <!-- Header Section End -->
 
         <!-- Posts Filter Bar Start -->
+       

@@ -20,13 +20,13 @@
         <ul class="nav row gutter--15" data-ajax-content="inner">
             <?php
             $tin_tuc = new WP_Query(array(
-                'post_type' => 'danh-muc',
+                'post_type' => 'post',
                 'post_status' => 'publish',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'category',
                         'field' => 'id',
-                        'terms' => '12'
+                        'terms' => '30'
                     )
                 ),
                 //thay id_của_category bằng id danh mục bạn muốn hiển thị nhé

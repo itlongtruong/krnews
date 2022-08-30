@@ -293,7 +293,8 @@ get_header();
       <ul class="nav">
         <?php
         $args = array(
-          'post_type'        => 'danh-muc',
+          'post_type' => 'post',
+          'post_status' => 'publish',
           'numberposts'      =>  10,
           'cat'       => $cat_id,
           'orderby'          => 'date',
