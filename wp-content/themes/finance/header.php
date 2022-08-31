@@ -75,7 +75,7 @@ $current_date = current_datetime();
                     <div class="float--right float--xs-none text-xs-center">
                         <!-- Header Topbar Action Start -->
                         <ul class="header--topbar-social nav hidden-sm hidden-xxs">
-                            <li><a href="https://www.facebook.com/KRNews.TinTucKrongNo"><i class="fa fa-facebook"></i></a></li>
+                            <li><a  href="https://www.facebook.com/KRNews.TinTucKrongNo" target="_blank"><i class="fa fa-facebook"></i></a></li>
                             <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                             <li><a href="#"><i class="fa fa-rss"></i></a></li>

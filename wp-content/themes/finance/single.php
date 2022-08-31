@@ -233,7 +233,7 @@ get_header();
 
                     <div class="widget">
                         <div class="widget--title" data-ajax="tab">
-                            <h2 class="h4">Xem nhiều nhất</h2>
+                            <h2 class="h4">Tin mới nhất</h2>
                         </div>
                         <div class="list--widget list--widget-1" data-ajax-content="outer">
                             <div class="post--items post--items-3">
@@ -241,9 +241,9 @@ get_header();
                                     <?php
                                     $wp_query = new WP_Query(array(
                                         'post_type' => 'post',
-                                        'posts_per_page' => 4,
-                                        'meta_key'          =>  'post_views_count',
-                                        'orderby'           =>  'meta_value_num',
+                                        'posts_per_page' => 5,
+                                        'post__not_in' => array($post->ID),
+                                        'orderby'           =>  'date',
                                         'paged' =>  get_query_var('paged')
                                     ));
                                     ?>
