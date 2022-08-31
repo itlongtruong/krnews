@@ -1777,7 +1777,7 @@ body.boxed>.wrapper {
 }
 
 .comment-respond div {
-    display: block;
+    /* display: block; */
     margin-bottom: 8px;
     color: #777;
     font-weight: 400;
