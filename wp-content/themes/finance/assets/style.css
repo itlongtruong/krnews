@@ -168,7 +168,7 @@ img,
 .nav>li>a>img {
     /* RESPONSIVE IMAGES */
     max-width: 100%;
- 
+
 }
 
 ::-moz-selection {
@@ -7523,4 +7523,104 @@ body.isScrolling #backToTop {
     color: #fff;
     transition: 0.4s;
     border-radius: 4px;
+}
+
+
+
+
+
+@media screen and (min-width: 576px) {
+
+    .image-header-1 {
+
+        height: 389px;
+    }
+
+    .image-header-2 {
+
+        height: 187px;
+    }
+
+    .image-lamdep-1 {
+
+        height: 370px;
+    }
+
+    .image-lamdep-2 {
+
+        height: 194px;
+    }
+
+    .image-krongno-1 {
+
+        height: 243px;
+    }
+
+    .image-thoisu-1 {
+
+        height: 243px;
+    }
+
+    .image-thethao-1 {
+
+        height: 243px;
+    }
+
+    .image-xeco-1 {
+
+        height: 243px;
+    }
+
+    .image-giaoduc-1 {
+
+        height: 243px;
+    }
+
+    .image-congnghe-1 {
+
+        height: 243px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+   
+    .line-giaca,
+    .main--sidebar,.header--topbar-social {
+        display: none !important;
+
+    }
+
+    .ban-do {
+        width: 1170;
+    }
+
+
+
+}
+
+@media screen and (max-width: 992px) {
+   
+    .header--ad,
+    .amthuc-moble {
+        display: none !important;
+
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+
+    .amthuc-web {
+        display: none !important;
+
+    }
+
+    .line-giaca-moblie {
+        display: none !important;
+
+    }
+
+
 }

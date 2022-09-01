@@ -19,6 +19,11 @@ $current_date = current_datetime();
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>" />
+    <?PHP if (IS_HOME()) : ?>
+        <meta property="og:image" content="https://krongnonews.com/wp-content/uploads/2022/08/123logo.png" />
+        <meta property="og:image:width" content="1280">
+        <meta property="og:image:height" content="720" ; />
+    <?PHP endif; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <?php wp_head(); ?>
 
@@ -53,7 +58,13 @@ $current_date = current_datetime();
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/custom.css">
 
 </head>
-
+<style>
+    @media only screen and (max-width:480px) {
+    .header--mainbar {
+        display: none !important;
+    }
+}
+</style>
 <body class="boxed" data-bg-img="<?php echo get_template_directory_uri(); ?>/assets/img/bg-pattern.png" <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <div class="wrapper">
@@ -75,11 +86,8 @@ $current_date = current_datetime();
                     <div class="float--right float--xs-none text-xs-center">
                         <!-- Header Topbar Action Start -->
                         <ul class="header--topbar-social nav hidden-sm hidden-xxs">
-                            <li><a  href="https://www.facebook.com/KRNews.TinTucKrongNo" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href=""><i class="fa fa-youtube-play"></i></a></li> -->
+                            <li><a href="https://www.facebook.com/KRNews.TinTucKrongNo" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                          
                         </ul>
                         <!-- <ul class="header--topbar-action nav">
 
@@ -119,6 +127,7 @@ $current_date = current_datetime();
                             </a>
                         </h1>
                     </div>
+                    
                     <!-- Header Logo End -->
 
                     <!-- Header Ad Start -->
@@ -213,4 +222,3 @@ $current_date = current_datetime();
         <!-- Header Section End -->
 
         <!-- Posts Filter Bar Start -->
-       

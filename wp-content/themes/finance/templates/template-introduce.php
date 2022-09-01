@@ -26,7 +26,7 @@ get_header();
     <div class="container">
 
         <div class="row ptop--30">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249394.38928447993!2d107.70591373307532!3d12.397165269938743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31722f857a0a6f5f%3A0x3786be4394472875!2zS3LDtG5nIE7DtCwgxJDEg2sgTsO0bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sjp!4v1661751005191!5m2!1svi!2sjp" width="1170" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249394.38928447993!2d107.70591373307532!3d12.397165269938743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31722f857a0a6f5f%3A0x3786be4394472875!2zS3LDtG5nIE7DtCwgxJDEg2sgTsO0bmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2sjp!4v1661751005191!5m2!1svi!2sjp" class="ban-do" width="100%"   height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div class="row">

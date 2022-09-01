@@ -35,7 +35,7 @@ get_header();
 
                     <div class="post--item post--single post--title-largest pd--30-0">
                         <div class="post--img">
-                            <a href="<?php the_permalink(); ?>" class="thumb"><img height="500px" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a>
+                            <a href="<?php the_permalink(); ?>" class="thumb"><img  src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a>
 
                         </div>
                         <div class="post--cats">
@@ -94,7 +94,7 @@ get_header();
                                         <li class="col-sm-6 pbottom--30">
                                             <div class="post--item post--layout-1">
                                                 <div class="post--img">
-                                                    <a href="<?php the_permalink(); ?>" class="thumb"><img height="195px" src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category();
+                                                    <a href="<?php the_permalink(); ?>" class="thumb"><img  src="<?php echo get_the_post_thumbnail_url($post_id, 'full'); ?>" alt="" data-rjs="2" data-rjs-processed="true"></a> <a href="#" class="cat"><?php $category = get_the_category();
                                                                                                                                                                                                                                                                         echo get_primary_category($category); ?></a>
                                                     <div class="post--info">
                                                         <ul class="nav meta">
